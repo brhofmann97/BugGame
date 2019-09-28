@@ -16,7 +16,6 @@ public class ScoreKeeperScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     void addScore(float f)
@@ -33,5 +32,11 @@ public class ScoreKeeperScript : MonoBehaviour
         }
         avg /= scores.Count;
         return avg;
+    }
+
+    char getLetterGrade(float f)
+    {
+        //doesnt even use float
+        return (char)Random.Range(65, 90);
     }
 }
