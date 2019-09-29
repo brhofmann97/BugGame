@@ -18,6 +18,10 @@ public class KnifeMaster : MonoBehaviour
     public AudioClip pointsTwo;
 
 
+    public GameObject knifeUp;
+    public GameObject knifeDown;
+    private bool cut = false;
+
     private float musicTimer = 3.2f;
     private bool musicStarted = false;
     private float timer = 2.0f;
@@ -44,6 +48,13 @@ public class KnifeMaster : MonoBehaviour
         }
 
 
+        if (cut)
+        {
+            cut = false;
+            knifeUp.SetActive(true);
+            knifeDown.SetActive(false);
+        }
+
         if (levelTimer > 0)
         {
             levelTimer -= Time.deltaTime;
@@ -52,6 +63,9 @@ public class KnifeMaster : MonoBehaviour
             {
                 Destroy(GameObject.Find("bug"));
 
+                cut = true;
+                knifeUp.SetActive(false);
+                knifeDown.SetActive(true);
 
                 GameObject go = GameObject.Instantiate(points);
                 go.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-5, 5), Random.Range(7, 20));
@@ -76,7 +90,7 @@ public class KnifeMaster : MonoBehaviour
             if (timer <= 0)
             {
                 timer = Random.Range(0.15f, 1.5f);
-                GameObject go = GameObject.Instantiate(bugs[Random.Range(0, 3)]);
+                GameObject go = GameObject.Instantiate(bugs[Random.Range(0, 4)]);
                 go.transform.position = spawnPoint.position;
                 go.name = "bug";
                 Destroy(go, 5);
