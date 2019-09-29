@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 96bb43dd48a8da24b9fa39217e66ff0b
+  - enabled: 1
+    path: Assets/Scenes/MaxScene.unity
+    guid: 85a1a3a45fd57904aa027c092f01b317
+  - enabled: 1
+    path: Assets/Scenes/KnfeGame.unity
+    guid: 7b78bf642c42f4449adb0ef1374eb940
+  - enabled: 1
+    path: Assets/Scenes/wok.unity
+    guid: a3d3a8b679c734b409e43d94ed25fc0e
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 665ed921bd43cd34ea859f4906e4b337
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

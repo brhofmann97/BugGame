@@ -808,6 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad154af80173799489bd4b5737f7d34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gotomainmenu: 0
   scoreText: {fileID: 404213092}
   scoreSound: {fileID: 937971629}
   letterGrade: {fileID: 839954788}
@@ -1817,6 +1818,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6039781202069682589, guid: 9df3f4ddc62ae7242b6f28df0e6d116f,
+        type: 3}
+      propertyPath: m_Name
+      value: ScoreKeeper
+      objectReference: {fileID: 0}
     - target: {fileID: 6039781202069682587, guid: 9df3f4ddc62ae7242b6f28df0e6d116f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1871,11 +1877,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6039781202069682589, guid: 9df3f4ddc62ae7242b6f28df0e6d116f,
-        type: 3}
-      propertyPath: m_Name
-      value: ScoreKeeper
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9df3f4ddc62ae7242b6f28df0e6d116f, type: 3}

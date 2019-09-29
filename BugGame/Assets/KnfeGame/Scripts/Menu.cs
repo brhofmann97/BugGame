@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    public bool gotomainmenu = false;
 
     public Text scoreText;
     public AudioSource scoreSound;
@@ -24,7 +26,7 @@ public class Menu : MonoBehaviour
         {
             if (score < 1634522)
             {
-                score += Random.Range(1, 51000);
+                score += UnityEngine.Random.Range(1, 51000);
             }
             else
             {
@@ -35,14 +37,14 @@ public class Menu : MonoBehaviour
             scoreText.text = score.ToString();
 
         }
-        else if(phase == 2)
+        else if (phase == 2)
         {
             letterGrade.SetActive(true);
 
-            char c = (char)('A' + Random.Range (0,26));
-            int grade = Random.Range(1, 4);
+            char c = (char)('A' + UnityEngine.Random.Range(0, 26));
+            int grade = UnityEngine.Random.Range(1, 4);
             Debug.Log(grade);
-            if(grade == 1)
+            if (grade == 1)
                 letterGradeText.text = c.ToString() + "-";
             else if (grade == 2)
                 letterGradeText.text = c.ToString();
@@ -56,12 +58,19 @@ public class Menu : MonoBehaviour
             nextLevel.interactable = true;
             phase += 1;
         }
-        
+
     }
 
 
     public void ChangeLevel()
     {
-        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1));
+        if (gotomainmenu)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1));
+        }
     }
 }
