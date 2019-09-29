@@ -21,13 +21,16 @@ public class Minions : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if (collision.gameObject.tag == "wall")
-        {
-            Debug.Log("HIT A WALL DAMMIT");
-            dir *= -1;
-            //gameObject.transform.position = new Vector3((gameObject.transform.position.x - GetComponent<Rigidbody2D>().velocity.x * 10), gameObject.transform.position.y, gameObject.transform.position.z);
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(dir, 0);
-        }
+        dir *= -1;
+        //gameObject.transform.position = new Vector3((gameObject.transform.position.x - GetComponent<Rigidbody2D>().velocity.x * 10), gameObject.transform.position.y, gameObject.transform.position.z);
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(dir, 0);
+
+        //if (collision.gameObject.tag == "wall" & collision.gameObject.tag == "floor")
+        //{
+        //    Debug.Log("HIT A WALL DAMMIT");
+        //    dir *= -1;
+        //    //gameObject.transform.position = new Vector3((gameObject.transform.position.x - GetComponent<Rigidbody2D>().velocity.x * 10), gameObject.transform.position.y, gameObject.transform.position.z);
+        //    gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(dir, 0);
+        //}
     }
 }

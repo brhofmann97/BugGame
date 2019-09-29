@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         var movement = input * speed;
         Vector3 camPos = cam.transform.position;
         Vector3 playPos = this.transform.position;
-        cam.transform.position = new Vector3(playPos.x,playPos.y + 1,camPos.z);
+        cam.transform.position = new Vector3(playPos.x,camPos.y,camPos.z);
         if (movement != 0)
         {
             if (movement > 0)
