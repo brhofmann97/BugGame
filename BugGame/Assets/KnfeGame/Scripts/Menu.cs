@@ -8,9 +8,11 @@ public class Menu : MonoBehaviour
 {
 
     public Text scoreText;
+    public AudioSource scoreSound;
 
     public GameObject letterGrade;
     public Text letterGradeText;
+
 
     public Button nextLevel;
 
@@ -24,7 +26,11 @@ public class Menu : MonoBehaviour
             {
                 score += Random.Range(1, 51000);
             }
-            else { phase += 1; }
+            else
+            {
+                phase += 1;
+                scoreSound.Stop();
+            }
 
             scoreText.text = score.ToString();
 
