@@ -10,13 +10,15 @@ public class Player : MonoBehaviour
     BoxCollider2D bc;
     float speed = 200f;
     List<GameObject> collisions;
+    Animator ani;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
         JumpWatch = GetComponent<StopWatch>();
         collisions = new List<GameObject>();
-        JumpWatch.SetTimer(0.2f);
+        ani = GetComponent<Animator>();
+        JumpWatch.SetTimer(0.1f);
         JumpWatch.StartClock();
     }
 
@@ -25,9 +27,26 @@ public class Player : MonoBehaviour
     {
         var input = Input.GetAxis("Horizontal");
         var movement = input * speed;
+        
+        if(movement != 0)
+        {
+            if (movement > 0)
+            {
+                ani.SetBool("left", false);
+            }
+            if (movement < 0)
+            {
+                ani.SetBool("left", true);
+            }
+            ani.SetBool("walk", true);
+        }
+        else
+        {
+            ani.SetBool("walk", false);
+        }
         rb.velocity = new Vector2(movement, rb.velocity.y);
-        if(Input.GetKey(KeyCode.Space) & CanJump() & JumpWatch.CheckClock()){
-            print("jump");
+        if(Input.GetKey(KeyCode.W) & CanJump()){
+            ani.SetBool("jump", true);
             JumpWatch.ResetClock();
             rb.AddForce(new Vector2(0,10000));
         }
@@ -35,11 +54,15 @@ public class Player : MonoBehaviour
 
     bool CanJump()
     {
-        foreach(GameObject o in collisions)
+        if (JumpWatch.CheckClock())
         {
-            if(o.name == "Floor")
+            foreach (GameObject o in collisions)
             {
-                return true;
+                if (o.name == "Floor")
+                {
+                    ani.SetBool("jump", false);
+                    return true;
+                }
             }
         }
         return false;
