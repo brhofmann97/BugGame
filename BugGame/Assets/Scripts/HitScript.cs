@@ -6,7 +6,7 @@ public class HitScript : MonoBehaviour
 {
     public float screenBottom;
     public float targetHit;
-    bool kill = false;
+    public bool kill = false;
 
     public int SkillReturn()
     {
@@ -39,6 +39,7 @@ public class HitScript : MonoBehaviour
 
         if (transform.position.y <= screenBottom || kill == true)
         {
+            WokGameScript.remove();
             Destroy(gameObject);
         }
     }
